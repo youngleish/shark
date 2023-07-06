@@ -10,7 +10,7 @@
     "shark": "bin/shark.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "younglei <youngleish@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.4.0",

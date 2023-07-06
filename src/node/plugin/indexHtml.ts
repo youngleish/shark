@@ -1,10 +1,28 @@
 import {readFile} from 'fs/promises';
 import {Plugin} from 'vite';
+import { CLIENT_ENTRY_PATH } from '../const';
 
 export function PluginIndexHtml(): Plugin {
   return {
     name: 'shark:index-html',
     apply: 'serve',
+    // 插入入口 script 标签
+    transformIndexHtml(html) {
+      return {
+        html,
+        tags: [
+          {
+            tag: "script",
+            attrs: {
+              type: "module",
+              src: `/@fs/${CLIENT_ENTRY_PATH}`,
+              // src: "/src/runtime/client-entry.tsx",
+            },
+            injectTo: "body",
+          },
+        ],
+      };
+    },
     configureServer(server) {
       return () => {
         // 中间件server逻辑放在回调函数中： 避免影响vite内置的中间件功能，所以放在最后面
