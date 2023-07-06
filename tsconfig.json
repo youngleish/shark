@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
+    "module": "commonjs",
     "outDir": "dist",
-    "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
-    "module": "commonjs" /* Specify what module code is generated. */,
-    "rootDir": "src" /* Specify the root folder within your source files. */,
-    "moduleResolution": "node", // 指定模块解析策略
+    "rootDir": "src",
+    "target": "ESNext"
   }
 }
